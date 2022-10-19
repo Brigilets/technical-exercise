@@ -1,13 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
+import { render } from 'react-dom';
 import './App.css';
-import '../components/Chart'
+import Chart from './components/Chart';
 
 function App() {
   return (
     <div className="App">
-   <Chart />
+      <Chart />
     </div>
+
   );
 }
 
