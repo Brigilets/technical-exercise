@@ -72,24 +72,24 @@ cleanData()
     <div>
       <h1>SpaceX Launches per year</h1>
       {
-        isLoading ? <div>I'm getting data...</div> : <div> Loaded </div>
+        isLoading ? <h4>I'm getting data...</h4> : <h4> Loaded </h4>
       }
       <div     style={{
           width: "100%",
           height: "100%",
-          padding: "30px",
-          maxWidth: "1000px",
-          margin: "20px auto"
+          padding: "20px",
+          maxWidth: "900px",
+          margin: "30px auto"
         }}>
       
         <BarChart
         width={900}
-        height={400}
+        height={600}
         data={data}
         margin={{
           top: 5,
           right: 30,
-          left: 30,
+          left: 20,
           bottom: 5
         }}
       >
