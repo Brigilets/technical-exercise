@@ -88,7 +88,7 @@ cleanData()
         data={data}
         margin={{
           top: 5,
-          right: 30,
+          right: 40,
           left: 20,
           bottom: 5
         }}
@@ -98,7 +98,7 @@ cleanData()
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="launches" fill="#453cec" />
+        <Bar dataKey="launches" fill="#342af2" />
         
       </BarChart>
      
