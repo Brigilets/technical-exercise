@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ILaunch } from "../interfaces/Launch";
 import { ILaunchesPerYear } from "../interfaces/LaunchesPerYear";
-import './Chart.css'
 import {
   BarChart,
   Bar,
@@ -19,7 +18,6 @@ function Chart() {
   const [launchesPerYear, setLaunchesPerYear] = useState<ILaunchesPerYear[]>([]);
   const [isLoading,  setIsLoading] = useState(true);
   
-
   useEffect(() => {
     const fetchData = async () => {
       const url = "https://api.spacex.land/rest/launches";
@@ -35,8 +33,6 @@ function Chart() {
     };
     fetchData();
   }, []);
-  console.log('launches per year useEffect', launchesPerYear)
-  console.log('all launches', allLaunches)
 
   const getLaunchesPerYear = (allLaunches: ILaunch[]) => {
     const result =  allLaunches && allLaunches.reduce((launchesPerEachYear: any,  currentYear: ILaunch): any =>  {
@@ -52,17 +48,12 @@ function Chart() {
   }
 
   getLaunchesPerYear(allLaunches)
-console.log('launch year and launches', getLaunchesPerYear(allLaunches))
-
 
 const  cleanData= () =>{
   let output: Array<ILaunchesPerYear> = [];
-  
-  // object.entries
-  output = Object.entries(getLaunchesPerYear(allLaunches)).map(([key,value]) =>({year: String(key) , launches: Number(value)}))
 
-  console.log('clean data?', output);
-  
+  output = Object.entries(getLaunchesPerYear(allLaunches)).map(([key,value]) =>({year: String(key) , launches: Number(value)}))  
+
     return output;
 }
 cleanData()
@@ -93,9 +84,9 @@ cleanData()
           bottom: 5
         }}
       >
-        <CartesianGrid strokeDasharray="3 3"  />
+       <CartesianGrid strokeDasharray="3 3"  />
         <XAxis dataKey="year" />
-        <YAxis />
+        <YAxis tickCount={27}/>
         <Tooltip />
         <Legend />
         <Bar dataKey="launches" fill="#342af2" />
